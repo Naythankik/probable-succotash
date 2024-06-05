@@ -13,14 +13,14 @@
 body {
   font-family: "Rubik";
   min-height: 100vh;
+  min-width: 300px;
   position: relative;
   background: rgb(253, 249, 249);
 }
 a {
   text-decoration: none;
 }
-
-p {
+screen p {
   color: var(--text-color);
   font-size: 19px;
 }
@@ -28,6 +28,7 @@ p {
 .btn {
   padding: 13px 30px;
   border-radius: 5px;
+  text-wrap: nowrap;
   /* box-shadow: 0 2px 18px 0 black; */
 }
 
@@ -51,6 +52,10 @@ header {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: #000000;
+}
+
+.hamburger {
+  display: none;
 }
 
 .header-navs a:hover {
@@ -148,6 +153,7 @@ main {
   color: var(--soft-blue-bg);
   font-weight: 500;
   font-size: 34px;
+  text-align: center;
 }
 
 .features p,
@@ -155,6 +161,7 @@ main {
 .faqs p {
   width: 31.2%;
   text-align: center;
+  color: var(--text-color);
 }
 
 .features-menu {
@@ -211,7 +218,7 @@ main {
 .first-feature-tab::before {
   content: "";
   background: var(--soft-blue-bg);
-  width: 600px;
+  width: 40%;
   height: 500px;
   position: absolute;
   left: 0;
@@ -413,4 +420,138 @@ input {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
+}
+
+.overlay {
+  display: none;
+}
+@media screen and (max-width: 991px) {
+  .overlay {
+    background: var(--header-color);
+    opacity: 0.9;
+    display: grid;
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    left: 0;
+    top: 0;
+    gap: 2rem;
+    z-index: 10000;
+  }
+  .header-navs {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+    background: none;
+    width: 5%;
+  }
+  .hamburger img {
+    width: 100%;
+  }
+  .hamburger:hover {
+    border: none !important;
+  }
+  .bottom-footer-child,
+  .footer-links,
+  .extensions-tags,
+  .first-feature-tab,
+  .features-menu {
+    flex-direction: column;
+  }
+  .description {
+    flex-direction: column-reverse;
+  }
+  .faqs,
+  .extensions,
+  .features,
+  .description {
+    padding: 0 2rem;
+  }
+  .description,
+  .footer-links,
+  .description-buttons,
+  .right-description,
+  footer h1,
+  form,
+  .faqs h2,
+  .faqs p,
+  .faqs-questions,
+  .tag,
+  .tag-container,
+  .extensions-tags,
+  .extensions p,
+  .features p,
+  .first-tab-img,
+  .first-feature-details,
+  .left-description,
+  .features-menu {
+    width: 100%;
+  }
+  .description-buttons {
+    justify-content: space-between;
+  }
+  .description h2 {
+    font-size: 40px;
+  }
+  footer p,
+  .description h2,
+  .features p,
+  .description p {
+    text-align: center;
+  }
+  .footer-links {
+    gap: 3rem;
+  }
+  .right-footer {
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 3rem;
+  }
+  form {
+    grid-template-columns: auto;
+    padding: 0 2rem;
+  }
+  .tag {
+    margin-top: 0.5rem;
+    height: 20rem;
+  }
+  .tag-container {
+    height: 100%;
+    padding: 20px;
+  }
+  .tag-container::before {
+    bottom: 6rem;
+  }
+  .tag-options {
+    margin-bottom: 1rem;
+  }
+  .extensions-tags {
+    gap: 2rem;
+  }
+  .first-feature-tab::before,
+  .description::before {
+    width: 70%;
+    height: 9%;
+    top: 68rem;
+    content: unset;
+  }
+  .features {
+    margin-bottom: 0;
+  }
+  .first-feature-details {
+    margin-top: 6rem;
+  }
+  .features-menu {
+    align-items: center;
+  }
+  .features-menu::before {
+    content: unset;
+  }
+  .active-feature {
+    width: fit-content;
+  }
+  .features-menu a {
+    padding: 15px 0;
+  }
 }
