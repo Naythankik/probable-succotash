@@ -89,8 +89,8 @@ main {
 .description::before {
   content: "";
   background: var(--soft-blue-bg);
-  width: 600px;
-  height: 400px;
+  width: 40%;
+  height: 11%;
   position: absolute;
   right: 0;
   top: 15rem;
@@ -289,7 +289,6 @@ main {
   text-align: left;
   line-height: 2;
   font-weight: 400;
-  display: none;
 }
 .question:first-of-type {
   border-top: 1px solid var(--text-color);
@@ -312,6 +311,16 @@ main {
 .question-header h3 {
   font-weight: normal;
   color: var(--header-color);
+}
+
+.question-header:hover h3 {
+  color: var(--soft-red-bg);
+}
+
+.invert-arrow {
+  filter: brightness(0) saturate(100%) invert(15%) sepia(81%) saturate(6022%)
+    hue-rotate(357deg) brightness(102%) contrast(115%);
+  transform: rotate(180deg);
 }
 
 footer {
@@ -429,26 +438,92 @@ input {
   .overlay {
     background: var(--header-color);
     opacity: 0.9;
-    display: grid;
-    position: absolute;
-    height: 100vh;
+    display: none;
+    position: fixed;
+    min-height: 100vh;
     width: 100%;
     left: 0;
     top: 0;
     gap: 2rem;
-    z-index: 10000;
+    z-index: 10;
+    padding: 2rem 0;
   }
+
+  .header-overlay {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  .top-logo {
+    display: flex;
+    width: 85%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-logo img {
+    filter: brightness(0) saturate(100%) invert(97%) sepia(0%) saturate(7500%)
+      hue-rotate(38deg) brightness(109%) contrast(102%);
+  }
+
   .header-navs {
     display: none;
   }
-  .hamburger {
+  .hamburger,
+  .close {
     display: block;
     background: none;
+    cursor: pointer;
     width: 5%;
   }
-  .hamburger img {
+  .close:hover {
+    background: none;
+    border: none;
+    color: none;
+  }
+
+  .hamburger img,
+  .close img {
     width: 100%;
   }
+
+  .overlay-links {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+  }
+
+  .overlay-links a {
+    text-transform: uppercase;
+    color: #ffffff;
+    letter-spacing: 3px;
+    text-align: center;
+    padding: 1.2rem 0;
+  }
+
+  .overlay-links a:first-of-type {
+    border-top: 1px solid var(--text-color);
+  }
+
+  .overlay-links a:not(.login) {
+    border-bottom: 1px solid var(--text-color);
+  }
+
+  .overlay-links .login {
+    border: 2px solid #ffffff;
+    border-radius: 7px;
+    font-weight: 600;
+    margin-top: 1.2rem;
+  }
+
+  .nav-overlay-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 3rem;
+  }
+
   .hamburger:hover {
     border: none !important;
   }
@@ -531,9 +606,9 @@ input {
   }
   .first-feature-tab::before,
   .description::before {
-    width: 70%;
-    height: 9%;
-    top: 68rem;
+    width: 80%;
+    height: 10%;
+    top: 12rem;
     content: unset;
   }
   .features {
@@ -541,6 +616,7 @@ input {
   }
   .first-feature-details {
     margin-top: 6rem;
+    justify-items: center;
   }
   .features-menu {
     align-items: center;
