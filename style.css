@@ -64,10 +64,10 @@ header {
 
 .header-navs a:last-child {
   background: var(--soft-red-bg);
+  border: 1px solid var(--soft-red-bg);
   color: white;
 }
 .header-navs a:last-child:hover {
-  border: 1px solid var(--soft-red-bg);
   background: transparent;
   color: var(--soft-red-bg);
 }
@@ -153,7 +153,7 @@ main {
   color: var(--soft-blue-bg);
   font-weight: 500;
   font-size: 34px;
-  text-align: center;
+  /* text-align: center; */
 }
 
 .features p,
@@ -182,19 +182,26 @@ main {
 }
 .active-feature {
   border-bottom: 4px solid var(--soft-red-bg);
+  color: var(--soft-red-bg) !important;
 }
 
-.features-menu a {
+.features-menu span {
   color: var(--text-color);
   font-size: 20px;
   padding: 0 30px 30px;
 }
 
-.features-menu a:hover {
+.features-menu span:hover {
   color: var(--soft-red-bg);
+  cursor: pointer;
 }
 
-.first-feature-tab,
+.tabs-container {
+  display: flex;
+  max-width: max-content;
+}
+
+.feature-tab,
 .extensions-tags {
   display: flex;
   justify-content: space-between;
@@ -204,25 +211,34 @@ main {
   margin-bottom: 7rem;
 }
 
+.d-hidden {
+  display: none;
+}
+
 .first-feature-details {
-  width: 29%;
+  width: 36%;
   display: grid;
   gap: 30px;
 }
 
+.first-feature-details h2 {
+  color: #000000;
+}
 .first-feature-details p {
   width: 100%;
   text-align: left;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.first-feature-tab::before {
+.feature-tab::before {
   content: "";
   background: var(--soft-blue-bg);
   width: 40%;
   height: 500px;
   position: absolute;
   left: 0;
-  top: 75rem;
+  top: 73rem;
   border-radius: 0 0 35% 0;
   z-index: -1;
 }
@@ -530,7 +546,7 @@ input {
   .bottom-footer-child,
   .footer-links,
   .extensions-tags,
-  .first-feature-tab,
+  .feature-tab,
   .features-menu {
     flex-direction: column;
   }
@@ -604,7 +620,7 @@ input {
   .extensions-tags {
     gap: 2rem;
   }
-  .first-feature-tab::before,
+  .feature-tab::before,
   .description::before {
     width: 80%;
     height: 10%;
@@ -627,7 +643,7 @@ input {
   .active-feature {
     width: fit-content;
   }
-  .features-menu a {
+  .features-menu span {
     padding: 15px 0;
   }
 }

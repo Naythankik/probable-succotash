@@ -28,3 +28,19 @@ questions.forEach((question) => {
     question.lastElementChild.toggleAttribute("hidden");
   });
 });
+
+const menuPanel = document.querySelector(".features-menu").children;
+const menuContainer = document.querySelector(".tabs-container").children;
+
+for (let i = 0; i < menuPanel.length; i++) {
+  menuPanel[i].addEventListener("click", () => {
+    for (let k = 0; k < menuPanel.length; k++) {
+      if (i !== k && menuPanel[k].classList.contains("active-feature")) {
+        menuPanel[k].classList.remove("active-feature");
+      }
+      menuContainer[k].classList.add("d-hidden");
+    }
+    menuPanel[i].classList.add("active-feature");
+    menuContainer[i].classList.remove("d-hidden");
+  });
+}
